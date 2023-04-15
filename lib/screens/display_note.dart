@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:notesapp/models/note_model.dart';
 
@@ -15,33 +17,43 @@ class ShowNote extends StatelessWidget {
         'Your note',
       )),
       body: Padding(
-        padding: EdgeInsets.all(8),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              note.title,
-              style: TextStyle(
-                fontSize: 28.0,
-                fontWeight: FontWeight.bold,
-                color: Color(0xff917FB3),
+        padding: EdgeInsets.all(0),
+        child: ListView(children: [
+          Column(
+            children: [
+              Row(
+                children: [
+                  Spacer(
+                    flex: 2,
+                  )
+                ],
               ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              note.body,
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w100,
-                color: Color(0xffE5BEEC),
+              SizedBox(
+                height: 10,
               ),
-            )
-          ],
-        ),
+              Text(
+                note.title,
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xff917FB3),
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                note.body,
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w100,
+                  color: Color(0xffE5BEEC),
+                ),
+              )
+            ],
+          ),
+        ]),
       ),
     );
   }

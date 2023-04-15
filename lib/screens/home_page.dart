@@ -57,35 +57,32 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 } else {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 350,
-                        childAspectRatio: 1,
-                        crossAxisSpacing: 4,
-                        mainAxisSpacing: 2,
-                      ),
-                      itemCount: snapshot.data.length,
-                      itemBuilder: (context, index) {
-                        String title = snapshot.data[index]['title'];
-                        String body = snapshot.data[index]['body'];
-                        String creationDate =
-                            snapshot.data[index]['creationDate'];
-                        int id = snapshot.data[index]['id'];
-
-                        return Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: NoteTile(
-                            body: body,
-                            title: title,
-                            dateTime: creationDate.toString(),
-                            id: id,
-                          ),
-                        );
-                      },
+                  return GridView.builder(
+                    gridDelegate:
+                        const SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 400,
+                      childAspectRatio: 1.1,
+                      crossAxisSpacing: 1,
+                      mainAxisSpacing: 1,
                     ),
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (context, index) {
+                      String title = snapshot.data[index]['title'];
+                      String body = snapshot.data[index]['body'];
+                      String creationDate =
+                          snapshot.data[index]['creationDate'];
+                      int id = snapshot.data[index]['id'];
+
+                      return Padding(
+                        padding: const EdgeInsets.all(5),
+                        child: NoteTile(
+                          body: body,
+                          title: title,
+                          dateTime: creationDate.toString(),
+                          id: id,
+                        ),
+                      );
+                    },
                   );
                 }
               }
